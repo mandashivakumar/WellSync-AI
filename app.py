@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 # Load dataset
-file_path = "/content/gym_members_exercise_tracking.csv"
+file_path = "gym_members_exercise_tracking.csv"
 data = pd.read_csv(file_path)
 
 # Data Preprocessing
