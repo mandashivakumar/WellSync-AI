@@ -232,19 +232,19 @@ def main_app():
     with col1:
         age = st.number_input("Age", min_value=0, max_value=100)
         gender = st.selectbox("Gender", ["Male", "Female"])
-        weight = st.number_input("Weight (kg)", min_value=0.0, value=75.0)
-        height = st.number_input("Height (m)", min_value=0.0, value=1.75)
-        max_bpm = st.number_input("Max BPM", min_value=0, value=180)
-        avg_bpm = st.number_input("Avg BPM", min_value=0, value=150)
-        resting_bpm = st.number_input("Resting BPM", min_value=0, value=70)
+        weight = st.number_input("Weight (kg)", min_value=0.0)
+        height = st.number_input("Height (m)", min_value=0.0)
+        max_bpm = st.number_input("Max BPM", min_value=0)
+        avg_bpm = st.number_input("Avg BPM", min_value=0)
+        resting_bpm = st.number_input("Resting BPM", min_value=0)
 
     with col2:
-        session_duration = st.number_input("Session Duration (hours)", min_value=0.0, value=1.5)
-        calories_burned = st.number_input("Calories Burned", min_value=0, value=500)
-        fat_percentage = st.number_input("Fat Percentage", min_value=0.0, value=20.0)
-        water_intake = st.number_input("Water Intake (liters)", min_value=0.0, value=2.5)
-        workout_frequency = st.number_input("Workout Frequency", min_value=0, value=4)
-        bmi = st.number_input("BMI", min_value=0.0, value=24.0)
+        session_duration = st.number_input("Session Duration (hours)", min_value=0.0)
+        calories_burned = st.number_input("Calories Burned", min_value=0)
+        fat_percentage = st.number_input("Fat Percentage", min_value=0.0)
+        water_intake = st.number_input("Water Intake (liters)", min_value=0.0)
+        workout_frequency = st.number_input("Workout Frequency", min_value=0)
+        bmi = st.number_input("BMI", min_value=0.0)
 
     st.markdown('</div>', unsafe_allow_html=True)  # Close the bordered container
 
