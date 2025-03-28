@@ -48,6 +48,18 @@ st.markdown(
     .small-subheader {
         style="background-color: #4CAF50; color: white; padding: 10px; border-radius: 8px;"
     }
+    .link-button {
+        color: #FF0000; 
+        background-color: transparent; 
+        border: none; 
+        cursor: pointer; 
+        text-decoration: underline; 
+        font-size: 12px; 
+        font-weight: normal; 
+    }
+    .link-button:hover {
+        color: #45a049; 
+    }
     .stMarkdown {
         margin-bottom: 16px;
     }
@@ -213,6 +225,13 @@ def provide_nutrition_guidance(calories_burned, weight, height, age):
     # Display daily calorie intake
     st.write(f"Your estimated daily calorie intake should be around {daily_calories:.2f} calories.")
 
+# Reset Function
+def reset_app():
+    # Clear session state
+    st.session_state.clear()
+    # Rerun the app
+    st.rerun()
+
 # Main App
 def main_app():
     st.markdown('<div class="title">Gym Member Exercise Tracking</div>', unsafe_allow_html=True)
@@ -221,11 +240,35 @@ def main_app():
     # Add a guiding sentence
     st.markdown("Please enter your details below to get personalized workout and nutrition recommendations.", unsafe_allow_html=True)
 
+
     # Wrap input fields in a bordered container
     #st.markdown('<div class="input-group-border">', unsafe_allow_html=True)
     st.markdown("")
     st.markdown("")
-    st.markdown('<div class="subheader">Your Details</div>', unsafe_allow_html=True)
+    # Wrap input fields with the "Your Details" label
+    st.markdown(
+        '<div class="subheader" style="display: flex; justify-content: space-between; align-items: center;">'
+        'Your Details'
+        f'<button class="link-button" onclick="window.open(window.location.href); return false;">Reset</button>'
+        '</div>', 
+        unsafe_allow_html=True
+    )
+
+    # Button to trigger reset
+    # if st.button("Reset", key="reset"):
+    #     st.session_state['age'] = 0
+    #     st.session_state['height'] = 0.00
+    #     st.session_state['avg_bpm'] = 0
+    #     st.session_state['fat_percentage'] = 0.00
+    #     st.session_state['bmi'] = 0.00
+    #     st.session_state['gender'] = "Male"  # Assuming default is Male
+    #     st.session_state['max_bpm'] = 0
+    #     st.session_state['session_duration'] = 0.00
+    #     st.session_state['water_intake'] = 0.00
+    #     st.session_state['weight'] = 0.00
+    #     st.session_state['resting_bpm'] = 0
+    #     st.session_state['calories_burned'] = 0
+    #     st.session_state['workout_frequency'] = 0
 
     # Inputs in two columns
     col1, col2, col3 = st.columns(3)
@@ -311,6 +354,7 @@ def main_app():
         # Provide nutrition guidance
         provide_nutrition_guidance(calories_burned_pred, weight, height, age)
         st.markdown('</div>', unsafe_allow_html=True)
+
 
 # Check if user is logged in
 if "logged_in" not in st.session_state:
